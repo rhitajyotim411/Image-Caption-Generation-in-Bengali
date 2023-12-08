@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_img_cap/ipDetails.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 TextEditingController ip = new TextEditingController();
@@ -21,8 +22,8 @@ class _SettingsUIState extends State<SettingsUI> {
   _checkIp() async {
     var box = await Hive.openBox('ipBox');
     if (box.get("ip") == null || box.get('port') == null) {
-      ip.text = '192.168.0.119';
-      port.text = '5000';
+      ip.text = defaultIP;
+      port.text = defaultPort;
     } else {
       ip.text = box.get("ip");
       port.text = box.get("port");
