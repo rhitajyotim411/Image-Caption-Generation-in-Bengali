@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 import 'dart:io';
 import 'package:flutter_img_cap/settingsUI.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -181,8 +180,9 @@ class _HomeState extends State<Home> {
           AnimatedSize(
             duration: Duration(milliseconds: 200),
             alignment: Alignment.topCenter,
-            child:
-                imageFile != null ? _imagePreview() : _pickImageCard(context),
+            child: imageFile != null
+                ? _imagePreview(false)
+                : _pickImageCard(context),
           ),
           AnimatedSize(
             duration: Duration(milliseconds: 200),
@@ -322,7 +322,7 @@ class _HomeState extends State<Home> {
                     duration: Duration(milliseconds: 200),
                     alignment: Alignment.topCenter,
                     child: imageFile != null
-                        ? _imagePreview()
+                        ? _imagePreview(true)
                         // : _pickImageCard(context),
                         : Column(
                             mainAxisSize: MainAxisSize.min,
@@ -537,7 +537,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget _imagePreview() {
+  Widget _imagePreview(bool isPc) {
     return Container(
       alignment: Alignment.center,
       width: double.infinity,
@@ -548,7 +548,7 @@ class _HomeState extends State<Home> {
             borderRadius: BorderRadius.circular(20),
             child: Image.file(
               imageFile!,
-              height: 300,
+              height: !isPc ? 300 : 500,
               fit: BoxFit.contain,
             ),
           ),
