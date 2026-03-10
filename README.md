@@ -37,5 +37,5 @@ To start the Flask API, follow these steps:
 
 ## Notes
 - Ensure that the saved weights are correctly placed in the `ImgCap` package as they are crucial for the model's functionality.
-- The IP address displayed in the console is dynamic and will change every time the Flask server is restarted. Make sure to update the IP address in app accordingly.
+- The IP address displayed in the console is dynamic and will change every time the Flask server is restarted. Make sure to update the IP address in the app accordingly.
 - This API is intended for local use only.
